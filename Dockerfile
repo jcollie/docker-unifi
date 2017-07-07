@@ -2,16 +2,15 @@ FROM registry.fedoraproject.org/fedora:26
 
 ENV LANG C.UTF-8
 
+RUN dnf -y update && rm -rf /usr/share/doc /usr/share/man /var/cache/dnf
+RUN dnf -y install java-1.8.0-openjdk-headless mongodb-server unzip && rm -rf /usr/share/doc /usr/share/man /var/cache/dnf
+
 RUN mkdir /data /logs /opt/UniFi
 RUN ln -s /data /opt/UniFi/data
 RUN ln -s /logs /opt/UniFi/logs
 
-RUN dnf -y update && \
-    dnf -y install java-1.8.0-openjdk-headless mongodb-server unzip && \
-    rm -rf /var/cache/dnf
-
-ADD https://www.ubnt.com/downloads/unifi/5.6.7-63ab9a7965/UniFi.unix.zip /tmp/UniFi.unix.zip
-ADD https://www.ubnt.com/downloads/unifi/5.6.7-63ab9a7965/unifi_sh_api /usr/local/bin/unifi_sh_api
+ADD https://www.ubnt.com/downloads/unifi/5.6.10-f6637e5b6d/UniFi.unix.zip /tmp/UniFi.unix.zip
+ADD https://www.ubnt.com/downloads/unifi/5.6.10-f6637e5b6d/unifi_sh_api /usr/local/bin/unifi_sh_api
 
 RUN chmod a+x /usr/local/bin/unifi_sh_api
 
