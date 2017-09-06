@@ -9,8 +9,8 @@ RUN mkdir /data /logs /opt/UniFi
 RUN ln -s /data /opt/UniFi/data
 RUN ln -s /logs /opt/UniFi/logs
 
-ADD https://www.ubnt.com/downloads/unifi/5.6.10-f6637e5b6d/UniFi.unix.zip /tmp/UniFi.unix.zip
-ADD https://www.ubnt.com/downloads/unifi/5.6.10-f6637e5b6d/unifi_sh_api /usr/local/bin/unifi_sh_api
+ADD https://dl.ubnt.com/unifi/5.6.16-86cdeea491/UniFi.unix.zip /tmp/UniFi.unix.zip
+ADD https://dl.ubnt.com/unifi/5.6.16-86cdeea491/unifi_sh_api /usr/local/bin/unifi_sh_api
 
 RUN chmod a+x /usr/local/bin/unifi_sh_api
 
