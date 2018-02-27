@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:26
+FROM registry.fedoraproject.org/fedora:27
 
 ENV LANG C.UTF-8
 
@@ -9,8 +9,8 @@ RUN mkdir /data /logs /opt/UniFi
 RUN ln -s /data /opt/UniFi/data
 RUN ln -s /logs /opt/UniFi/logs
 
-ADD https://dl.ubnt.com/unifi/5.7.19-84cd139873/UniFi.unix.zip /tmp/UniFi.unix.zip
-ADD https://dl.ubnt.com/unifi/5.7.19-84cd139873/unifi_sh_api /usr/local/bin/unifi_sh_api
+ADD https://dl.ubnt.com/unifi/5.7.20-4f3333649b/UniFi.unix.zip /tmp/UniFi.unix.zip
+ADD https://dl.ubnt.com/unifi/5.7.20-4f3333649b/unifi_sh_api /usr/local/bin/unifi_sh_api
 
 RUN chmod a+x /usr/local/bin/unifi_sh_api
 
