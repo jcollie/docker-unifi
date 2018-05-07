@@ -1,17 +1,17 @@
-FROM registry.fedoraproject.org/fedora:27
+FROM registry.fedoraproject.org/fedora:28
 
-ARG http_proxy
-ARG https_proxy
+ENV http_proxy http://192.168.4.206:3128
+ENV https_proxy http://192.168.4.206:3128
 
 ENV LANG C.UTF-8
 
 RUN dnf -y update && rm -rf /usr/share/doc /usr/share/man /var/cache/dnf
-RUN dnf -y install java-1.8.0-openjdk-headless mongodb-server unzip && rm -rf /usr/share/doc /usr/share/man /var/cache/dnf
+RUN dnf -y install java-1.8.0-openjdk-headless unzip && rm -rf /usr/share/doc /usr/share/man /var/cache/dnf
 
 RUN mkdir /data /logs /opt/UniFi /opt/UniFi/bin && ln -s /data /opt/UniFi/data && ln -s /logs /opt/UniFi/logs
 
-ADD https://dl.ubnt.com/unifi/5.7.25-8d34344384/UniFi.unix.zip /tmp/UniFi.unix.zip
-ADD https://dl.ubnt.com/unifi/5.7.25-8d34344384/unifi_sh_api /usr/local/bin/unifi_sh_api
+ADD https://dl.ubnt.com/unifi/5.7.26-9c1df3928c/UniFi.unix.zip /tmp/UniFi.unix.zip
+ADD https://dl.ubnt.com/unifi/5.7.26-9c1df3928c/unifi_sh_api /usr/local/bin/unifi_sh_api
 ADD entrypoint.sh /opt/UniFi/bin/entrypoint.sh
 
 RUN chmod a+x /usr/local/bin/unifi_sh_api /opt/UniFi/bin/entrypoint.sh
