@@ -1,8 +1,5 @@
 FROM registry.fedoraproject.org/fedora:28
 
-ENV http_proxy http://192.168.4.206:3128
-ENV https_proxy http://192.168.4.206:3128
-
 ENV LANG C.UTF-8
 
 RUN dnf -y update && rm -rf /usr/share/doc /usr/share/man /var/cache/dnf
