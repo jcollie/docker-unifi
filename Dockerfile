@@ -7,8 +7,8 @@ RUN dnf -y install java-1.8.0-openjdk-headless unzip && rm -rf /usr/share/doc /u
 
 RUN mkdir /data /logs /opt/UniFi /opt/UniFi/bin && ln -s /data /opt/UniFi/data && ln -s /logs /opt/UniFi/logs
 
-ADD https://dl.ubnt.com/unifi/5.7.26-9c1df3928c/UniFi.unix.zip /tmp/UniFi.unix.zip
-ADD https://dl.ubnt.com/unifi/5.7.26-9c1df3928c/unifi_sh_api /usr/local/bin/unifi_sh_api
+ADD https://dl.ubnt.com/unifi/5.7.27-bdefe35e63/UniFi.unix.zip /tmp/UniFi.unix.zip
+ADD https://dl.ubnt.com/unifi/5.7.27-bdefe35e63/unifi_sh_api /usr/local/bin/unifi_sh_api
 ADD entrypoint.sh /opt/UniFi/bin/entrypoint.sh
 
 RUN chmod a+x /usr/local/bin/unifi_sh_api /opt/UniFi/bin/entrypoint.sh
