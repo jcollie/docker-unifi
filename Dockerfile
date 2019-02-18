@@ -15,7 +15,7 @@ RUN chmod a+x /usr/local/bin/unifi_sh_api /opt/UniFi/bin/entrypoint.sh
 
 RUN unzip /tmp/UniFi.unix.zip -d /opt
 
-RUN rm -rf /tmp/*
+RUN rm -rf /tmp/* /opt/UniFi/bin/mongod
 
 VOLUME /data
 VOLUME /logs
@@ -25,6 +25,7 @@ EXPOSE 3478/udp
 EXPOSE 5353/udp
 EXPOSE 6789/tcp
 EXPOSE 8080/tcp
+EXPOSE 8081/tcp
 EXPOSE 8443/tcp
 EXPOSE 8843/tcp
 EXPOSE 8880/tcp
