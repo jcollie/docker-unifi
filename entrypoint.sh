@@ -15,8 +15,10 @@ echo "db.mongo.uri=mongodb://${MONGODB_HOSTS}/${MONGODB_NAME}" >> /data/system.p
 echo "statdb.mongo.uri=mongodb://${MONGODB_HOSTS}/${MONGODB_NAME}_stat" >> /data/system.properties
 echo "unifi.db.name=${MONGODB_NAME}" >> /data/system.properties
 
-touch /data/keystore
-cp /data/keystore /data/keystore.backup.$DATE
+if [ -e /data/keystore ]
+then
+  cp /data/keystore /data/keystore.backup.$DATE
+fi
 
 openssl pkcs12 -export -inkey /certs/tls.key -in /certs/tls.crt -out /tmp/tls.p12 -name unifi -password pass:unifi
 
